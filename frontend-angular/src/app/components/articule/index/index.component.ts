@@ -27,7 +27,7 @@ export class IndexComponent implements OnInit {
   deleteArticule(id){
     this. articuleService.delete(id).subscribe(res => {
          this. articules = this. articules.filter(item => item.id !== id);
-         console.log(' Articules deleted successfully!');
+         //console.log(' Articules deleted successfully!');
     })
   }
 

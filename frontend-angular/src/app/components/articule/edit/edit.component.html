@@ -14,7 +14,6 @@
           <label for="title">Code:</label>
           <input
             formControlName="code"
-            [(ngModel)]="articule.code"
             id="code"
             type="text"
             class="form-control">
@@ -30,7 +29,6 @@
               <label for="title">Name:</label>
               <input
                 formControlName="name"
-                [(ngModel)]="articule.name"
                 id="name"
                 type="text"
                 class="form-control">
@@ -46,7 +44,6 @@
               <label for="salePrice">Sale Price:</label>
               <input
                 formControlName="salePrice"
-                [(ngModel)]="articule.salePrice"
                 id="salePrice"
                 type="text"
                 class="form-control">
@@ -61,7 +58,6 @@
             <div class="col-md-6 ">
               <label for="codePostal">Code Postal:</label>
               <input
-                [(ngModel)]="articule.codePostal"
                 formControlName="codePostal"
                 id="codePostal"
                 type="text"
@@ -77,7 +73,6 @@
             <div class="col-md-6 ">
               <label for="stock">Stock:</label>
               <input
-                [(ngModel)]="articule.stock"
                 formControlName="stock"
                 id="stock"
                 type="text"
@@ -93,7 +88,6 @@
             <div class="col-md-6 ">
               <label for="description">Description:</label>
               <input
-                [(ngModel)]="articule.description"
                 formControlName="description"
                 id="description"
                 type="text"
@@ -108,7 +102,7 @@
         <div class="form-group row">
             <div class="col-md-6 ">
               <label for="img">Image:</label>
-              <input
+              <!--<input
                 [(ngModel)]="articule.img"
                 formControlName="img"
                 id="img"
@@ -117,7 +111,7 @@
               <div *ngIf="f.img.touched && f.img.invalid" class="alert alert-danger">
                   <div *ngIf="f.img.errors.required">*Img is required.</div>
                   <div *ngIf="f.img.errors.pattern">*The img must only contain numbers.</div>
-              </div>
+              </div>-->
             </div>
         </div>
 

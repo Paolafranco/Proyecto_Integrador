@@ -9,7 +9,7 @@
     
     <table class="table ">
       <tr>
-        <th>ID</th>
+        <th>Nº</th>
         <th>Code</th>
         <th>Name</th>
         <th>Sale Price</th>
@@ -19,15 +19,15 @@
         <th>Image</th>
         <th width="220px">Action</th>
       </tr>
-      <tr *ngFor="let articule of articules">
-        <td>{{ articule.id }}</td>
+      <tr *ngFor="let articule of articules; let i = index">
+        <td>{{ i + 1 }}</td>
         <td>{{ articule.code }}</td>
         <td>{{ articule.name }}</td>
         <td>{{ articule.salePrice }}</td>
         <td>{{ articule.codePostal}}</td>
         <td>{{ articule.stock }}</td>
         <td>{{ articule.description}}</td>
-        <td>{{ articule.image}}</td>
+        <td>{{ articule.img}}</td>
         <td>
           <a href="#" [routerLink]="['/articule/', 'edit', articule.id  ]" class="btn btn-primary">Edit</a>
           <button type="button" (click)="deleteArticule(articule.id)" class="btn btn-danger">Delete</button>

@@ -25,6 +25,7 @@ class CreateArticulesTable extends Migration
             $table->unsignedBigInteger('id_sub_categories')->unsigned()->nullable();
             $table->foreign('id_sub_categories')->references('id')->on('categories')->onUpdate('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

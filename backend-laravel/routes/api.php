@@ -52,7 +52,7 @@ Route::get('/buscador/{name}', [CategorieController::class, 'buscador']);
 //articules
 Route::get('/articules', [ArticuleController::class, 'index']);
 Route::post('/articules/create', [ArticuleController::class, 'store']);
-Route::get('/articules/show/{id}', [ArticuleController::class, 'show']);
+Route::get('/articules/edit/{id}', [ArticuleController::class, 'show']);
 Route::put('/articules/update/{id}', [ArticuleController::class, 'update']);
 Route::delete('/articules/delete/{id}', [ArticuleController::class, 'destroy']);
 

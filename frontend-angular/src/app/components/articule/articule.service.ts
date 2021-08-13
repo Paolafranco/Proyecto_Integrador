@@ -11,7 +11,7 @@ import { Articule } from 'src/app/class/articule';
   providedIn: 'root'
 })
 export class ArticuleService {
-  private apiURL = "http://127.0.0.1/api/articules";
+  private apiURL = "http://localhost:8000/api/articules";
 
   httpOptions = {
      headers: new HttpHeaders({
@@ -36,7 +36,7 @@ export class ArticuleService {
  }
 
  find(id): Observable<Articule> {
-   return this.httpClient.get<Articule>(`${this.apiURL}/${id}`)
+   return this.httpClient.get<Articule>(`${this.apiURL}/edit/${id}`)
    .pipe(
      catchError(this.errorHandler)
    )

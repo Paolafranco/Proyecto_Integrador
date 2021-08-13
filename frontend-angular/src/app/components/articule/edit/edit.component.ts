@@ -23,24 +23,31 @@ export class EditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['idArticule'];
-    this.articuleService.find(this.id).subscribe((data: Articule)=>{
-      this.articule = data;
-    });
 
     this.form = new FormGroup({
       code:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
       name:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      salePrice: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
-      codePostal: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
-      stock:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
-      description: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
-      img: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
+      salePrice: new FormControl('', [ Validators.required, Validators.pattern("^(?!\s|.*\s$).*$")]),
+      codePostal: new FormControl('', [ Validators.required, Validators.minLength(6),Validators.maxLength(6)  ]),
+      stock:  new FormControl('', [ Validators.required, Validators.maxLength(50) ]),
+      description: new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
+      //img: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
+    });
+
+    this.id = this.route.snapshot.params['idArticule'];
+    this.articuleService.find(this.id).subscribe((data: Articule)=>{
+      this.form.get('code').setValue(data.code);
+      this.form.get('name').setValue(data.name);
+      this.form.get('salePrice').setValue(data.salePrice);
+      this.form.get('codePostal').setValue(data.codePostal);
+      this.form.get('stock').setValue(data.stock);
+      this.form.get('description').setValue(data.description);
     });
 
   }
 
   get f(){
+  
     return this.form.controls;
   }
 
