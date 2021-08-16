@@ -21,8 +21,11 @@ class CartsFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
+        //'code'=>$this->faker->name,
+        [
+            
+        'TotalPayment'=>$this->faker->name,
+
         ];
     }
 }

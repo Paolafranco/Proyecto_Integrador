@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ArticuleModule } from './components/articule/articule.module';
+import { CartModule } from './components/cart/cart.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -16,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     ArticuleModule,
+    CartModule,
     HttpClientModule,
     NgbModule
   ],

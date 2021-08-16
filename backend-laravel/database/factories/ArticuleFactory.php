@@ -21,6 +21,7 @@ class ArticuleFactory extends Factory
      */
     public function definition()
     {
+        [
            'code'=>$this->faker->name,
             'name'=>$this->faker->name,
             'salePrice'=>$this->faker->name,
