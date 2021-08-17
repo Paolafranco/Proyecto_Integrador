@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\ModuleProviders\UserController;
 use App\Http\Controllers\Api\ModuleProviders\TypeIdentificacionController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\ArticuleController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,3 +57,6 @@ Route::get('/articules/edit/{id}', [ArticuleController::class, 'show']);
 Route::put('/articules/update/{id}', [ArticuleController::class, 'update']);
 Route::delete('/articules/delete/{id}', [ArticuleController::class, 'destroy']);
 
+//carts
+Route::get('/carts', [CartController::class, 'index']);
+Route::delete('/carts/delete/{id}', [CartController::class, 'destroy']);

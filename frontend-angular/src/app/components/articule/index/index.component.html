@@ -1,13 +1,14 @@
-<section>
-
+<div class="card text-center">
+    <div class="card-body">
+      <p class="card-text">Saved Products</p>
     <div class="d-flex justify-content-between">
-      <h4>List Products</h4>
       <a routerLink="/articule/create" class="btn btn-success">Create New Products</a>
     </div>
 
     <br>
     
-    <table class="table ">
+    <table class="table table-bordered table-striped">
+      <thead>
       <tr>
         <th>Nº</th>
         <th>Code</th>
@@ -19,6 +20,8 @@
         <th>Image</th>
         <th width="220px">Action</th>
       </tr>
+    </thead>
+      <tbody>
       <tr *ngFor="let articule of articules; let i = index">
         <td>{{ i + 1 }}</td>
         <td>{{ articule.code }}</td>
@@ -29,10 +32,11 @@
         <td>{{ articule.description}}</td>
         <td>{{ articule.img}}</td>
         <td>
-          <a href="#" [routerLink]="['/articule/', 'edit', articule.id  ]" class="btn btn-primary">Edit</a>
+          <button type="button" [routerLink]="['/articule/', 'edit', articule.id  ]" class="btn btn-primary">Edit</button>
           <button type="button" (click)="deleteArticule(articule.id)" class="btn btn-danger">Delete</button>
         </td>
       </tr>
+    </tbody>
     </table>
- </section>
-
+  </div>
+</div>

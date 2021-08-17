@@ -103,14 +103,16 @@
         <div class="form-group row">
             <div class="col-md-6 ">
               <label for="img">Image:</label>
-              <!--<input type="file"
-               id="avatar" name="avatar"
-               accept="image/png, image/jpeg">
-              <div *ngIf="f.img.touched && f.img.invalid" class="alert alert-danger">
-                  <div *ngIf="f.img.errors.required">*Img is required.</div>
-                  <div *ngIf="f.img.errors.pattern">*The img must only contain numbers.</div>
-              </div>-->
-            </div>
+              <div>
+                <button type="button" (click)="subirArchivo()">Subir Archivo</button> 
+              </div>
+              <div>
+                <input (change)="captureFile($event)" type="file">
+              </div>
+             <div *ngIf="previsualizacion">
+               <img [src]="previsualizacion" alt="">
+             </div>
+           </div>
         </div>
   
           <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>

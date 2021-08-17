@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
-
 import { ArticuleService } from '../articule.service';
 import { Articule } from 'src/app/class/articule';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-index',
@@ -25,9 +24,26 @@ export class IndexComponent implements OnInit {
   }
 
   deleteArticule(id){
-    this. articuleService.delete(id).subscribe(res => {
-         this. articules = this. articules.filter(item => item.id !== id);
-         //console.log(' Articules deleted successfully!');
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this. articuleService.delete(id).subscribe(res => {
+          this. articules = this. articules.filter(item => item.id !== id);
+          //console.log(' Articules deleted successfully!');
+     })
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
     })
   }
 
