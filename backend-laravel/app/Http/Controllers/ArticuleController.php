@@ -209,7 +209,7 @@ class ArticuleController extends Controller
      */
     public function update(Request $request, articule $articule,$id)
     {
-        dd($request->all());
+        //dd($request->all());
         $articule=articule::find($id);
         $articule->code=$request->get("code");
         $articule->name=$request->get("name");

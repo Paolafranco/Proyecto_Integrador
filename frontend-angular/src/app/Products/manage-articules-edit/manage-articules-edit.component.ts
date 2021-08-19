@@ -18,12 +18,12 @@ export class ManageArticulesEditComponent implements OnInit {
 
   constructor(
     public servicesService: ServicesService,
-    private route: ActivatedRoute,
+    private activatedRouter: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-
+    this.loadArticule();
     this.form = new FormGroup({
       code:  new FormControl('', [ Validators.required, Validators.pattern('^[0-9]*$') ]),
       name:  new FormControl('', [ Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+') ]),
@@ -35,7 +35,7 @@ export class ManageArticulesEditComponent implements OnInit {
       id_sub_categories: new FormControl('', [ Validators.required, Validators.pattern("^[0-9]*$") ]),
     });
 
-    this.id = this.route.snapshot.params['idArticule'];
+    this.id = this.activatedRouter.snapshot.params['idArticule'];
     this.servicesService.find(this.id).subscribe((data: Articule)=>{
       this.form.get('code').setValue(data.code);
       this.form.get('name').setValue(data.name);
@@ -54,7 +54,18 @@ export class ManageArticulesEditComponent implements OnInit {
     return this.form.controls;
   }
 
-  submit(){
+  loadArticule(): void{
+   this.activatedRouter.params.subscribe(e =>{
+   let id = e ['id'];
+   if(id){
+   this.servicesService.getArticuleById(id).subscribe( 
+     s => this.articule = articule
+     );
+    }
+   })
+}
+
+  update(){
     Swal.fire({
       title: 'Are you sure?',
       text: "You want to edit?",
@@ -68,7 +79,7 @@ export class ManageArticulesEditComponent implements OnInit {
         console.log(this.form.value);
     this.servicesService.updateArticuleData(this.id, this.form.value).subscribe(res => {
          console.log('Articule updated successfully!');
-         this.router.navigateByUrl('manage-articules');
+         this.router.navigateByUrl('manage-articules/edit-articules/:id');
     })
         Swal.fire(
           'Edited!',
