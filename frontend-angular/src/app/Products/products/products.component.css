@@ -1,0 +1,19 @@
+.we-card{
+    padding: 1rem;
+    background-color: #fff;
+}
+
+.we-card-details{
+    padding: 1rem;
+}
+.we-details{
+    border-bottom: 1px solid #000;
+}
+
+.we-card-car{
+    border-radius: 5px;
+    margin: 0.5rem;
+    padding: 1rem;
+    box-shadow: 5px 4px 9px;
+    text-align: center;
+}

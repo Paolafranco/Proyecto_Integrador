@@ -15,17 +15,17 @@ class CreateArticulesTable extends Migration
     {
         Schema::create('articules', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_sub_categories')->constrained('sub_categories');            
             $table->string('code');
             $table->string('name');
             $table->decimal('salePrice');
             $table->string('codePostal');
             $table->integer('stock');
             $table->string('description');
-            $table->text('img');
-            $table->unsignedBigInteger('id_sub_categories')->unsigned()->nullable();
-            $table->foreign('id_sub_categories')->references('id')->on('categories')->onUpdate('cascade');
+            $table->string('image');            
+            //$table->unsignedBigInteger('id_sub_categories')->unsigned()->nullable();
+            //$table->foreign('id_sub_categories')->references('id')->on('categories')->onUpdate('cascade');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

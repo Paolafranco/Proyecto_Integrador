@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
              */
             $table->unsignedBigInteger('roleId');
             $table->unsignedBigInteger('typeId');
-            
             /**
              * Fileds
              */

@@ -4,15 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Models\subCategorie;
 class articule extends Model
 {
-
-    use SoftDeletes;
+    use HasFactory;
+    protected $table = 'articules';
 
     public function subcategories(){
-        return $this->belongsTo('App/Models/subCategorie');
+        return $this->belongsTo('App\Models\subCategorie', 'id_sub_categories', 'id');
     }
     public function products(){
         return $this->hasMany('App/Models/products'); 
@@ -24,6 +23,7 @@ class articule extends Model
         'codePostal',
         'stock',
         'description',
-        'img'
+        'image'
         ];
 }
+

@@ -21,7 +21,5 @@ class DatabaseSeeder extends Seeder
         TypeIdentificacion::factory(3)->create();
         Role::factory(3)->create();
         User::factory(10)->create();
-
-        \App\Models\Articule::factory(20)->create();
     }
 }

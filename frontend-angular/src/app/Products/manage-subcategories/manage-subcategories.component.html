@@ -1,0 +1,29 @@
+<app-navbar-manage></app-navbar-manage>
+<br/>
+<br/>
+<form (ngSubmit)="insertDatasubCategories()">
+  <div class="form-group">
+    <label for="">Nombre</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="subcategorie.name">
+  </div>
+<button class="btn btn-dark btn-sm mt-4">Enviar</button>
+</form>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+         <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sub of subcategories">
+        <th scope="row">{{sub.id}}</th>
+        <td>{{sub.name}}</td>
+        <td><button class="btn btn-danger btn-sm"(click)="deleteDatasubCategories(sub.id)">Eliminar</button>
+        <button class="btn btn-warning btn-sm mx-2"routerLink="edit-subcategorie/{{sub.id}}">Editar</button>
+        </td>   
+       </tr>
+      </tbody>
+  </table>

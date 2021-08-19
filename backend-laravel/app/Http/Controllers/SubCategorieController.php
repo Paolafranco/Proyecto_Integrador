@@ -35,13 +35,22 @@ class SubCategorieController extends Controller
      */
     public function store(Request $request)
     {
-        $subCategorie=subCategorie::create($request->all());
+       /* $subCategorie=subCategorie::create($request->all());
         return $subCategorie;
         if($subCategorie){
             echo "creado con exito"; 
            }else{
             echo "nel pastel error";   
-           }
+           }*/
+
+        $subCategorie = new SubCategorie();
+        $subCategorie->name = $request->name;
+        $subCategorie->save();
+
+        return response()->json([
+            'data' => $subCategorie,
+            'message' => 'Created Category'
+        ], 201);
     }
 
     /**
@@ -61,10 +70,12 @@ class SubCategorieController extends Controller
      * @param  \App\Models\subCategorie  $subCategorie
      * @return \Illuminate\Http\Response
      */
-    public function edit(subCategorie $subCategorie)
+    public function searchsubCategories(Request $request)
     {
         //
-    }
+        $subcategorie = subCategorie::where('name', $request->name)->get();
+        return $subcategorie;
+    }  
 
     /**
      * Update the specified resource in storage.

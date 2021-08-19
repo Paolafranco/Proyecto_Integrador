@@ -17,8 +17,5 @@ class carts extends Model
     {
         return $this->belongsTo(Shipping::class);
     }
-    protected $fillable=[
-        'TotalPayment',
-    ];
 
 }

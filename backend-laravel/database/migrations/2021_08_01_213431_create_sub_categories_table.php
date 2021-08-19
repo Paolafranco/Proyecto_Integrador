@@ -15,9 +15,11 @@ class CreateSubCategoriesTable extends Migration
     {
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
+            // nullable borrar despues de que toda la base este poblada
+            $table->foreignId('id_categories')->nullable()->constrained('categories');            
           $table->string('name');
-          $table->unsignedBigInteger('id_categories')->nullable();
-          $table->foreign('id_categories')->references('id')->on('categories')->onUpdate('cascade');
+         // $table->unsignedBigInteger('id_categories')->nullable();
+         // $table->foreign('id_categories')->references('id')->on('categories')->onUpdate('cascade');
             $table->timestamps();
         });
     }

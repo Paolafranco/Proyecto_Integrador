@@ -22,14 +22,8 @@ class CategorieFactory extends Factory
     public function definition()
     {
         return [
-<<<<<<< HEAD
             'name'=>$this->faker->text(50),
             'condition'=>$this->faker->text(300)
-=======
-            //
-            'name' => $this->faker->name,
-            'condition' =>$this->faker->condition,
->>>>>>> 387c0b78c9a120d00d6210e878d00fa70d4415a5
         ];
     }
 }

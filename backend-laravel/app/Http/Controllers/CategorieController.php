@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\CategorieResource; 
-use App\Models\Categorie;
+use App\Models\categorie;
 use Illuminate\Http\Request;
 
 class CategorieController extends Controller
@@ -13,19 +12,9 @@ class CategorieController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
-    public function index(Request $request)
-    {
-        //here I show all the inserted categories
-    
-        $categories=Categorie::paginate(10);
-        return CategorieResource::collection($categories);
-        
-=======
     public function index()
     {  
         return $categorie=categorie:: all();
->>>>>>> 9deea4702a54a4601004c2912afe074f91add8a5
     }
 
     /**
@@ -63,7 +52,7 @@ class CategorieController extends Controller
      */
     public function show(categorie $id)
     {
-          return $id; 
+        return $id;
     }
 
     /**
@@ -72,12 +61,12 @@ class CategorieController extends Controller
      * @param  \App\Models\categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function search(Request $request)
+    public function searchCategories(Request $request)
     {
         //
         $categories = Categorie::where('name', $request->name)->get();
         return $categories;
-    }
+    }  
 
     /**
      * Update the specified resource in storage.
@@ -112,5 +101,6 @@ class CategorieController extends Controller
         $categorie=categorie::find($id);
         $categorie->delete();
         return "eliminado con exito";
+
     }
 }

@@ -61,10 +61,12 @@ class ProductsController extends Controller
      * @param  \App\Models\products  $products
      * @return \Illuminate\Http\Response
      */
-    public function edit(products $products)
+    public function searchProducts(Request $request)
     {
-         
-    }
+        //
+        $products = products::where('name', $request->name)->get();
+        return $products;
+    }  
 
     /**
      * Update the specified resource in storage.

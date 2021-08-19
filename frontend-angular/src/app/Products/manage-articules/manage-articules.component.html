@@ -1,0 +1,41 @@
+<app-navbar-manage></app-navbar-manage>
+<br>
+<br>
+<div class="card-body">
+  <p class="card-text">Saved Products</p>
+<div class="d-flex justify-content-between">
+  <a routerLink="/manage-articules/create-articules" class="btn btn-success">Create New Products</a>
+</div>
+  
+  <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nombre</th>
+           <th scope="col">Precio de venta</th>
+           <th scope="col">Codigo postal</th>
+           <th scope="col">stock</th>
+           <th scope="col">Descripcion</th>
+           <th scope="col">imagen</th>
+           <th scope="col">subcategorias</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let art of articules">
+          <th scope="row">{{art.id}}</th>
+          <td>{{art.code}}</td>
+          <td>{{art.name}}</td>
+          <td>{{art.salePrice}}</td>
+          <td>{{art.codePostal}}</td>
+          <td>{{art.stock}}</td>
+          <td>{{art.description}}</td>
+          <td><img [src]="'http://localhost:8000/'+art.image"width="100px"></td> 
+          <td>{{art.id_sub_categories}}</td>         
+          <td><button class="btn btn-danger btn-sm"(click)="deleteDataArticules(art.id)">Eliminar</button>
+          <button class="btn btn-warning btn-sm mx-2"routerLink="edit-articules/{{art.id}}">Editar</button>
+          </td>   
+         </tr>
+        </tbody>
+    </table>
+  

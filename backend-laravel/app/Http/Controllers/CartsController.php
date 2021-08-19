@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\carts;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use DB;
 
 class CartsController extends Controller
 {
@@ -16,7 +14,7 @@ class CartsController extends Controller
      */
     public function index()
     {
-        return $cart=cart::all();
+        //
     }
 
     /**
@@ -37,24 +35,9 @@ class CartsController extends Controller
      */
     public function store(Request $request)
     {
-        $carts = new Cart();
-        //dd($request->code);
-        $carts->TotalPayment = $request->TotalPayment;
-        $carts->save();
-        //dd($request->code);
-        return response()->json([
-            'data' => $carts,
-            'msg' => [
-                'summary' => 'success',
-                'detail' => '',
-                'code' => '201'
-            ]], 201);
+        //
     }
 
-    public function get($id){
-        $data = Cart::find($id);
-        return response()->json($data, 200);
-      }
     /**
      * Display the specified resource.
      *
@@ -63,7 +46,7 @@ class CartsController extends Controller
      */
     public function show(carts $carts)
     {
-        return $id;
+        //
     }
 
     /**
@@ -86,29 +69,17 @@ class CartsController extends Controller
      */
     public function update(Request $request, carts $carts)
     {
-        $carts=Cart::find($id);
-        $carts->TotalPayment=$request->get("TotalPayment");
-        return $carts;
-        if($carts){
-            echo "valor total";
-        }
-        else{
-          echo "nel pastel";
-        }
-
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\cart  $cart
+     * @param  \App\Models\carts  $carts
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $carts, $id)
+    public function destroy(carts $carts)
     {
-        $carts=Cart::find($id);
-        $carts->delete();
-        return "eliminado con exito";
+        //
     }
 }

@@ -1,10 +1,11 @@
+import {Categories} from './categories'
 export class Articule {
-    id?:any;
-    code?:any;
-    name:any;
-    salePrice:any;
-    codePostal:any;
-    stock:any;
-    description:any;
-    img:any;
+code:any
+name:any
+salePrice:any
+codePostal:any
+stock:any
+description:any
+image:any
+id_sub_categories:Categories;
 }

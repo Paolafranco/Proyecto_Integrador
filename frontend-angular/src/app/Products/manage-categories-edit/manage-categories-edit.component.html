@@ -1,0 +1,12 @@
+<form (ngSubmit)="updateDataCategories()">
+    <div class="form-group">
+      <label for="">Nombre</label>
+      <input type="text" name="name" class="form-control" [(ngModel)]="categorie.name">
+    </div>
+    <div class="form-group">
+      <label for="">Codigo</label>
+      <input type="text" name="condition" class="form-control" [(ngModel)]="categorie.condition">
+    </div>
+  
+  <button class="btn btn-dark btn-sm mt-4" >Actualizar</button>
+</form>

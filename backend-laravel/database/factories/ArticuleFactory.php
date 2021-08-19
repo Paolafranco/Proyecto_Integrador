@@ -21,13 +21,8 @@ class ArticuleFactory extends Factory
      */
     public function definition()
     {
-           'code'=>$this->faker->name,
-            'name'=>$this->faker->name,
-            'salePrice'=>$this->faker->name,
-            'codePostal'=>$this->faker->name,
-            'stock'=>$this->faker->name,
-            'description'=>$this->faker->name,
-            'img'=>$this->faker->name,
+        return [
+            //
         ];
     }
 }
